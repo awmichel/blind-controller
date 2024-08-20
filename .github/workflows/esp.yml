@@ -3,9 +3,9 @@ name: ESP Rust
 on:
   push:
     paths:
-      - "esp"
-    paths-ignore:
-      - "**/README.md"
+      - "esp/**/*.rs"
+      - "esp/Cargo.*"
+      - "esp/.cargo/*"
   pull_request:
   workflow_dispatch:
 
