@@ -1,7 +1,9 @@
-name: Continuous Integration
+name: ESP Rust
 
 on:
   push:
+    paths:
+      - "esp"
     paths-ignore:
       - "**/README.md"
   pull_request:
@@ -15,6 +17,9 @@ jobs:
   rust-checks:
     name: Rust Checks
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: esp
     strategy:
       fail-fast: false
       matrix:
