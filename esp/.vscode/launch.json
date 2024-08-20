@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach",
+      "type": "cortex-debug",
+      "request": "attach",
+      "cwd": "${workspaceRoot}",
+      "executable": "target/xtensa-esp32-none-elf/debug/blind-controller-esp",
+      "servertype": "openocd",
+      "interface": "jtag",
+      "toolchainPrefix": "xtensa-esp32-elf",
+      "openOCDPreConfigLaunchCommands": ["set ESP_RTOS none"],
+      "serverpath": "/Users/amichel/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/bin/openocd",
+      "gdbPath": "/Users/amichel/.espressif/tools/xtensa-esp-elf-gdb/14.2_20240403/xtensa-esp-elf-gdb/bin/xtensa-esp32-elf-gdb",
+      "configFiles": ["board/esp-wroom-32.cfg"],
+      "overrideAttachCommands": [
+        "set remote hardware-watchpoint-limit 2",
+        "mon halt",
+        "flushregs"
+      ],
+      "overrideRestartCommands": ["mon reset halt", "flushregs", "c"]
+    }
+  ]
+}

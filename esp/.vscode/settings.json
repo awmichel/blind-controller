@@ -1,0 +1,4 @@
+{
+    "rust-analyzer.check.allTargets": false,
+    "idf.port": "/dev/tty.usbserial-0001",
+}
