@@ -41,7 +41,7 @@ impl<'d, In1Pin: OutputPin, In2Pin: OutputPin, PwmPin: OutputPin>
         mcpwm: MCPWM0,
         clocks: &Clocks,
     ) -> Motor<'d, In1Pin, In2Pin, PwmPin> {
-        let clock_cfg = PeripheralClockConfig::with_frequency(&clocks, 32.MHz()).unwrap();
+        let clock_cfg = PeripheralClockConfig::with_frequency(clocks, 32.MHz()).unwrap();
         let mut mcpwm = McPwm::new(mcpwm, clock_cfg);
         mcpwm.operator0.set_timer(&mcpwm.timer0);
 
@@ -128,6 +128,6 @@ impl<'d, PinA: InputPin, PinB: InputPin> MotorEncoder<'d, PinA, PinB> {
             return true;
         }
 
-        return false;
+        false
     }
 }
